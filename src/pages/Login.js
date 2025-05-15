@@ -6,6 +6,8 @@ import { Input, Button } from '@windmill/react-ui'
 import toast from 'react-hot-toast'
 import { useUserLoginMutation } from '../features/auth/auth'
 import { useForm } from 'react-hook-form'
+import logo from '../images/logo-big.png';
+
 
 function Login() {
   const {
@@ -40,87 +42,46 @@ function Login() {
   }
 
   return (
-    <div className="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
-      <div className="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
-        <div className="flex flex-col overflow-y-auto md:flex-row">
-          {/* Left Image */}
-          <div className="h-32 md:h-auto md:w-1/2">
-            <img
-              aria-hidden="true"
-              className="object-cover w-full h-full dark:hidden"
-              src={ImageLight}
-              alt="Office"
-            />
-            <img
-              aria-hidden="true"
-              className="hidden object-cover w-full h-full dark:block"
-              src={ImageDark}
-              alt="Office"
-            />
-          </div>
-
-          {/* Right Form */}
-          <main className="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
-            <div className="w-full">
-              <h1 className="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
-                Login
-              </h1>
-
-              <form onSubmit={handleSubmit(onFormSubmit)}>
-                <div className="grid grid-cols-1 gap-4">
-                  <div>
-                    <label className="block text-sm mb-1 text-gray-700 dark:text-gray-300">
-                      Email
-                    </label>
-                    <Input
-                      type="email"
-                      {...register("Email", { required: "Email is required" })}
-                      className="shadow-md p-3"
-                    />
-                    {errors.Email && (
-                      <p className="text-red-500 text-sm mt-1">{errors.Email.message}</p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className="block text-sm mb-1 text-gray-700 dark:text-gray-300">
-                      Password
-                    </label>
-                    <Input
-                      type="password"
-                      {...register("Password", { required: "Password is required" })}
-                      className="shadow-md p-3"
-                    />
-                    {errors.Password && (
-                      <p className="text-red-500 text-sm mt-1">{errors.Password.message}</p>
-                    )}
-                  </div>
-
-                  <Button type="submit" block className="mt-4">
-                    Login
-                  </Button>
-                </div>
-
-                <div className="grid grid-cols-2 items-center mt-4 text-sm">
-                  <Link
-                    className="text-purple-600 dark:text-purple-400 hover:underline"
-                    to="/forgot-password"
-                  >
-                    Forgot your password?
-                  </Link>
-                  <Link
-                    className="text-right text-purple-600 dark:text-purple-400 hover:underline"
-                    to="/create-account"
-                  >
-                    Create account
-                  </Link>
-                </div>
-              </form>
-            </div>
-          </main>
-        </div>
-      </div>
+    <div className="min-h-screen flex flex-col justify-center items-center px-4" style={{backgroundColor:"#364150"}}>
+    {/* Logo */}
+    <div className="mb-6">
+      <img
+        src={logo} // Replace with your actual logo path
+        alt="Logo"
+        className="w-20 h-20 md:w-24 md:h-24 rounded-full mx-auto"
+      />
     </div>
+
+    {/* Card */}
+    <div className="w-full max-w-sm bg-white rounded-lg shadow-lg p-6 sm:p-8">
+      <h2 className="text-2xl sm:text-3xl font-semibold text-center text-teal-500 mb-6">
+        Sign In
+      </h2>
+      <form className="space-y-4">
+        <input
+          type="email"
+          placeholder="Email"
+          className="w-full px-4 py-2 rounded-md bg-slate-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-400"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          className="w-full px-4 py-2 rounded-md bg-slate-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-400"
+        />
+        <button
+          type="submit"
+          className="w-full bg-teal-500 text-white py-2 rounded-md hover:bg-teal-600 transition"
+        >
+          LOGIN
+        </button>
+      </form>
+    </div>
+
+    {/* Footer */}
+    <footer className="mt-6 text-sm text-gray-400 text-center">
+      2024 © NICE. Admin Dashboard Template.
+    </footer>
+  </div>
   )
 }
 
