@@ -25,14 +25,13 @@ function Login() {
 
       if (res?.data?.success) {
         const { accessToken, user } = res.data.data
-        localStorage.setItem("FirstName", user.FirstName)
-        localStorage.setItem("LastName", user.LastName)
+        localStorage.setItem("Name", user.Name)
         localStorage.setItem("role", user.Role)
         localStorage.setItem("userId", user.id)
         localStorage.setItem("image", user.image)
 
         toast.success(res.data.message)
-        history.push("/app")
+        history.push("/app/add-user")
       } else {
         toast.error(res?.error?.data?.message || "Login failed. Please try again.")
       }
@@ -57,17 +56,27 @@ function Login() {
       <h2 className="text-2xl sm:text-3xl font-semibold text-center text-teal-500 mb-6">
         Sign In
       </h2>
-      <form className="space-y-4">
+      <form onSubmit={handleSubmit(onFormSubmit)} className="space-y-4">
         <input
           type="email"
+          {...register("Email")}
           placeholder="Email"
           className="w-full px-4 py-2 rounded-md bg-slate-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-400"
         />
+
+        {errors.Email && (
+            <p className='text-red-500 text-sm mt-1'>{errors.Email.message}</p>
+          )}
+
         <input
           type="password"
           placeholder="Password"
+          {...register("Password")}
           className="w-full px-4 py-2 rounded-md bg-slate-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-400"
         />
+        {errors.Password && (
+          <p className='text-red-500 text-sm mt-1'>{errors.Password.message}</p>
+        )}
         <button
           type="submit"
           className="w-full bg-teal-500 text-white py-2 rounded-md hover:bg-teal-600 transition"

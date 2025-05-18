@@ -4,6 +4,8 @@ import AccessibleNavigationAnnouncer from './components/AccessibleNavigationAnno
 import { Toaster } from 'react-hot-toast'
 import { Provider } from 'react-redux'
 import store from './app/store'
+import EditUser from './components/User/EditUser'
+import Outlet from './pages/Outlet'
 
 
 const Layout = lazy(() => import('./containers/Layout'))
@@ -28,6 +30,9 @@ function App() {
           <Route path="/archive-student" component={StudentEditProfile} />
           <Route path="/payments" component={PaymentStatus} /> */}
           {/* If you have an index page, you can remothis Redirect */}
+          <Route path="/edit-user" component={EditUser} />
+          <Route path="/outlet" component={Outlet} />
+        
           <Redirect exact from="/" to="/login" />
         </Switch>
       </Router>

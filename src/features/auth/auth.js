@@ -8,7 +8,7 @@ const getAuthToken = () => {
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://education-consultancy-backend.onrender.com/api/v1/",
+    baseUrl: "http://localhost:5000/api/v1/",
 
     // This will attach the token to every request that requires authorization
     prepareHeaders: (headers) => {
@@ -57,8 +57,9 @@ export const authApi = createApi({
     }),
 
     getAllUser: build.query({
-      query: () => ({
+      query: ({searchTerm, page, limit}) => ({
         url: "/user",
+        params:{searchTerm, page, limit}
       }),
       providesTags: ["auth"],
 
