@@ -37,23 +37,39 @@ const formattedDate = `${day}-${month}-${year}`;
         </nav>
       </div>
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
-        {areas.map((area, idx) => (
+     
           <div
-            key={idx}
-            className={`relative text-white rounded shadow-lg overflow-hidden ${area.color}`}
+           
+            className={`relative text-white rounded shadow-lg overflow-hidden ${'bg-yellow-400'}`}
           >
             <div className="flex items-center px-4 py-6">
               <FaBriefcase className="h-16 w-16 text-white/30 mr-4" />
-              <h2 className="text-2xl font-light">{area.name}</h2>
+              <h2 className="text-2xl font-light">Kitchen Pending KOT</h2>
             </div>
             <div>
-              <Link className={`${area.color} bg-opacity-80 px-4 py-2 flex justify-between items-center`} to={`/app/outlet/${area.id}`}>
-              <span className="text-sm uppercase">Select {area.name}</span>
+              <Link className={`${'bg-yellow-500'} bg-opacity-80 px-4 py-2 flex justify-between items-center`} to='/app/pending-kot'>
+              <span className="text-sm uppercase">View More</span>
               <FiArrowRightCircle className="h-5 w-5 text-white/70" />
               </Link>
             </div>
           </div>
-        ))}
+
+          <div
+           
+            className={`relative text-white rounded shadow-lg overflow-hidden ${'bg-gray-400'}`}
+          >
+            <div className="flex items-center px-4 py-6">
+              <FaBriefcase className="h-16 w-16 text-white/30 mr-4" />
+              <h2 className="text-2xl font-light">Kitchen Complete KOT</h2>
+            </div>
+            <div>
+              <Link className={`${'bg-gray-500'} bg-opacity-80 px-4 py-2 flex justify-between items-center`} to='/app/complete-kot'>
+              <span className="text-sm uppercase">View More</span>
+              <FiArrowRightCircle className="h-5 w-5 text-white/70" />
+              </Link>
+            </div>
+          </div>
+   
       </div>
     </div>
   );

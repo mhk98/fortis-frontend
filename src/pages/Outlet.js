@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaPlusCircle } from 'react-icons/fa';
 import { FiArrowRightCircle } from 'react-icons/fi';
 import { IoHome } from 'react-icons/io5';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
+import NewOrder from '../components/Outlet/NewOrder';
+import OrderHistory from '../components/Outlet/OrderHistory';
 
 
 const kotData = [
@@ -41,6 +43,13 @@ const getCurrentDate = () => {
 };
 
 export default function Outlet() {
+
+
+    const [activeTab, setActiveTab] = useState(null)
+
+    const isNewOrder = activeTab === "newOrder"
+    const isHistoryOrder = activeTab === "historyOrder"
+
   return (
     <div className="p-4 space-y-6">
       {/* Header */}
@@ -55,13 +64,14 @@ export default function Outlet() {
           Current Date: {getCurrentDate()}
         </div>
         <div className="flex gap-2 mt-2 md:mt-0">
-          <button className="bg-teal-500 text-white px-4 py-2 rounded-full flex items-center gap-1 hover:bg-teal-600 transition">
+          <button onClick={() => setActiveTab("newOrder")} className="bg-teal-500 text-white px-4 py-2 rounded-full flex items-center gap-1 hover:bg-teal-600 transition">
             Take New Order <FaPlusCircle size={16} />
           </button>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-full flex items-center gap-1 hover:bg-blue-600 transition">
+          <button onClick={() => setActiveTab("historyOrder")} className="bg-blue-500 text-white px-4 py-2 rounded-full flex items-center gap-1 hover:bg-blue-600 transition">
             Order History <Link size={16} />
           </button>
         </div>
+        
       </div>
 
       {/* KOT Cards */}
@@ -79,6 +89,21 @@ export default function Outlet() {
           </div>
         ))}
       </div>
+
+      {activeTab && (
+  <div className="mt-4 p-4 bg-white rounded-md">
+    {isNewOrder ? (
+      <div>
+        <NewOrder/>
+      </div>
+    ) : (
+      <div>
+        <OrderHistory/>
+      </div>
+    )}
+  </div>
+)}
+
     </div>
   );
 }

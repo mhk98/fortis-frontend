@@ -32,6 +32,8 @@ function App() {
           {/* If you have an index page, you can remothis Redirect */}
           <Route path="/edit-user" component={EditUser} />
           <Route path="/outlet" component={Outlet} />
+          <Route path="//pending-kot" component={Outlet} />
+          <Route path="//complete-kot" component={Outlet} />
         
           <Redirect exact from="/" to="/login" />
         </Switch>
