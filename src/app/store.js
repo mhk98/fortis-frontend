@@ -2,7 +2,8 @@
 
 import { configureStore } from "@reduxjs/toolkit";
 import { authApi } from "../features/auth/auth";
-import { CashInApi } from "../features/cashIn/cashIn";
+import { tblMenuApi } from "../features/tblMenu/tblMenu";
+
 
 
 
@@ -12,7 +13,8 @@ import { CashInApi } from "../features/cashIn/cashIn";
 const store = configureStore({
   reducer: {
     [authApi.reducerPath]: authApi.reducer,
-    [CashInApi.reducerPath]: CashInApi.reducer,
+    [tblMenuApi.reducerPath]: authApi.reducer,
+  
  
   
   },
@@ -21,7 +23,7 @@ const store = configureStore({
     getDefaultMiddleware().concat(
         // contactApi.middleware,
         authApi.middleware,
-        CashInApi.middleware,
+        tblMenuApi.middleware,
       
       
     ),
