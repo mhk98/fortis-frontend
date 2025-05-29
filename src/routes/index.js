@@ -7,6 +7,10 @@ import Outlet from '../pages/Outlet'
 import KitchenDashboard from '../pages/KitchenDashboard'
 import PendingKot from '../components/Kitchen/PendingKot'
 import CompleteHistory from '../components/Kitchen/CompleteKot'
+import OrderDetails from '../components/Outlet/OrderDetails'
+import EditOrder from '../components/Outlet/EditOrder'
+import BillPreview from '../components/Outlet/BillPreview'
+import BillPrint from '../components/Outlet/BillPrint'
 
 // use lazy for better code splitting, a.k.a. load faster
 const Dashboard = lazy(() => import('../pages/Dashboard'))
@@ -45,6 +49,22 @@ const routes = [
   {
     path: '/outlet/:id',
     component: Outlet,
+  },
+  {
+    path: '/order-details/:id',
+    component: OrderDetails,
+  },
+  {
+    path: '/edit-order/:id',
+    component: EditOrder,
+  },
+  {
+    path: '/bill-preview/:id',
+    component: BillPreview,
+  },
+  {
+    path: '/bill-print/:id',
+    component: BillPrint,
   },
   {
     path: '/pending-kot',
