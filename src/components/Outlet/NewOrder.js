@@ -26,7 +26,10 @@ export default function NewOrder() {
   const [guest, setGuest] = useState("")
   const [outlet, setOutlet] = useState("")
   const waiterno = localStorage.getItem("Name")
-  const {id} = useParams()
+  const {kotNo:kotNo1, ResSL, ResName, } = useParams()
+  // const res = { name: ResName };
+
+  console.log("res", ResName)
   const history = useHistory()
 
 
@@ -152,7 +155,7 @@ console.log("kotNo", kotNo)
       outlet,
       waiterno,
       kotno:kotNo,
-      ResSL:id,
+      ResSL:ResSL,
     }
     
     if (!orderItems.length) return alert("No items in order.");
@@ -163,7 +166,7 @@ console.log("kotNo", kotNo)
       if(res.success === true){
         alert("Order placed successfully!");
         setOrderItems([]); // Clear the cart
-        history.push(`/app/order-details/${kotNo}`)
+        history.push(`/app/order-details/${kotNo}/${ResSL}/${ResName}`)
         
       }
     

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaPlusCircle } from 'react-icons/fa';
 import { FiArrowRightCircle } from 'react-icons/fi';
 import { IoHome } from 'react-icons/io5';
-import { Link } from 'react-router-dom/cjs/react-router-dom';
+import { Link, useParams } from 'react-router-dom/cjs/react-router-dom';
 import NewOrder from '../components/Outlet/NewOrder';
 import OrderHistory from '../components/Outlet/OrderHistory';
 
@@ -50,6 +50,11 @@ export default function Outlet() {
     const isNewOrder = activeTab === "newOrder"
     const isHistoryOrder = activeTab === "historyOrder"
 
+    const {ResName} = useParams()
+
+    console.log("ResName", useParams())
+
+
   return (
     <div className="p-4 space-y-6">
       {/* Header */}
@@ -57,7 +62,7 @@ export default function Outlet() {
         <div className="text-lg font-medium text-gray-700">
           <span className="inline-flex items-center gap-2">
           <IoHome className="w-4 h-4" />
-            Dashboard <span className="font-bold">Café TORR</span>
+            Dashboard <span className="font-bold">{ResName}</span>
           </span>
         </div>
         <div className="text-center mt-2 md:mt-0 text-sm text-gray-800 font-semibold">

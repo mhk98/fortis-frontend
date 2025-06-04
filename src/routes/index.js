@@ -47,11 +47,11 @@ const routes = [
     component: KitchenDashboard,
   },
   {
-    path: '/outlet/:id',
+    path: '/outlet/:ResSL/:ResName',
     component: Outlet,
   },
   {
-    path: '/order-details/:id',
+    path: '/order-details/:kotNo/:ResSL/:ResName',
     component: OrderDetails,
   },
   {

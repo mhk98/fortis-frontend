@@ -67,7 +67,7 @@ export default function OperatorOutlet() {
               <div>
                 <Link
                   className={`${bgColor} bg-opacity-80 px-4 py-2 flex justify-between items-center`}
-                  to={`/app/outlet/${area.ResSL}`}
+                  to={`/app/outlet/${area.ResSL}/${area.ResName}`}
                 >
                   <span className="text-sm uppercase">Select {area.ResName}</span>
                   <FiArrowRightCircle className="h-5 w-5 text-white/70" />
